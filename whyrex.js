@@ -26,7 +26,7 @@ bot.on('message', (message) => {
         console.log('Sending to survival server...');
         bot.chat('/server survival'); // Respond with the server password
       }
-      if (messageText.includes('ASSif has requested to teleport')) {
+      if (messageText.includes('ASSif has requested')) {
         bot.chat('/tpaccept');
       }
   }

@@ -1,1 +1,1 @@
-node bot2.js
+node whyREX.js
