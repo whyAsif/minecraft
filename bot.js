@@ -1,5 +1,5 @@
 const mineflayer = require('mineflayer');
-
+const keep_alive = require('./keep_alive.js')
 const botConfigs = [
     { host: 'play.minecraftbangladesh.com', port: 25565, username: 'Redroom' },
     { host: 'play.minecraftbangladesh.com', port: 25565, username: 'whyREX' },
