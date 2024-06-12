@@ -1,5 +1,5 @@
 const mineflayer = require('mineflayer');
-const fetch = require("node-fetch");
+
 const keepAlive = require("./server");
 
 // Create the bot
