@@ -24,7 +24,7 @@ function createBot(config) {
         }
         if (messageText.includes('Connected')) {
             console.log(`${bot.username} sending to survival server...`);
-            bot.chat('/server survival'); // Respond with the server password
+            bot.chat('/joinq survival'); // Respond with the server password
         }
         if (messageText.includes('ASSif has requested')) {
             bot.chat('/tpaccept');
