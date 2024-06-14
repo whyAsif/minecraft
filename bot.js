@@ -40,8 +40,9 @@ function createBot(config, retryAttempt = 0) {
     bot.on('end', () => {
         console.log(`${bot.username} has been disconnected`);
         const nextRetryAttempt = retryAttempt + 1;
-        const delay = Math.min(5000 * Math.pow(2, retryAttempt), 60000); // Exponential backoff with a maximum delay of 1 minute
-        console.log(`${bot.username} will attempt to reconnect in ${delay / 1000} seconds`);
+        const baseDelay = 5000 * Math.pow(2, retryAttempt);
+        const delay = Math.min(baseDelay + Math.random() * 5000, 300000); // Exponential backoff with randomness, max delay 5 minutes
+        console.log(`${bot.username} will attempt to reconnect in ${(delay / 1000).toFixed(2)} seconds`);
         setTimeout(() => createBot(config, nextRetryAttempt), delay);
     });
 
@@ -60,8 +61,9 @@ function createBot(config, retryAttempt = 0) {
     bot.on('disconnect', (packet) => {
         console.log(`${bot.username} Disconnected: ${packet.reason}`);
         const nextRetryAttempt = retryAttempt + 1;
-        const delay = Math.min(5000 * Math.pow(2, retryAttempt), 60000); // Exponential backoff with a maximum delay of 1 minute
-        console.log(`${bot.username} will attempt to reconnect in ${delay / 1000} seconds`);
+        const baseDelay = 5000 * Math.pow(2, retryAttempt);
+        const delay = Math.min(baseDelay + Math.random() * 5000, 300000); // Exponential backoff with randomness, max delay 5 minutes
+        console.log(`${bot.username} will attempt to reconnect in ${(delay / 1000).toFixed(2)} seconds`);
         setTimeout(() => createBot(config, nextRetryAttempt), delay);
     });
 
@@ -73,7 +75,12 @@ function createBot(config, retryAttempt = 0) {
     bot.on('command_error', (command, err) => {
         console.log(`${bot.username} Command error: ${command}, Error: ${err}`);
     });
+
+    bot.on('connection', () => {
+        console.log(`${bot.username} is trying to connect to ${config.host}:${config.port}`);
+    });
 }
 
 // Create bots based on configurations
 botConfigs.forEach(config => createBot(config));
+
