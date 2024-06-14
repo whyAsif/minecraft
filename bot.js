@@ -1,8 +1,8 @@
 const mineflayer = require('mineflayer');
 const keep_alive = require('./keep_alive.js')
 const botConfigs = [
-    { host: 'play.bdzonemc.com', port: 25565, username: 'RedRoom', version: '1.20.1', },
     { host: 'play.bdzonemc.com', port: 25565, username: 'ASSif', version: '1.20.1', },
+    { host: 'play.bdzonemc.com', port: 25565, username: 'RedRoom', version: '1.20.1', },
 
     // Add more bot configurations here as needed
 ];
@@ -41,7 +41,7 @@ function createBot(config) {
 
     bot.on('end', () => {
         console.log(`${bot.username} has been disconnected`);
-        setTimeout(() => createBot(config), 1000); // Reconnect the bot after a delay
+        setTimeout(() => createBot(config), 5000); // Reconnect the bot after a delay
     });
 
     bot.on('error', (err) => {
