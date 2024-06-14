@@ -41,7 +41,7 @@ function createBot(config) {
 
     bot.on('end', () => {
         console.log(`${bot.username} has been disconnected`);
-        setTimeout(() => createBot(config), 7000); // Reconnect the bot after a delay
+        setTimeout(() => createBot(config), 60000); // Reconnect the bot after a delay
     });
 
     bot.on('error', (err) => {
