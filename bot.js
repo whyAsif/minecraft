@@ -1,5 +1,5 @@
 const mineflayer = require('mineflayer');
-const keep_alive = require('./server.js');
+const keep_alive = require('./keep_alive.js');
 
 const botConfigs = [
     { host: 'play.bdzonemc.com', port: 25565, username: 'ASSif', version: '1.20.1' },
