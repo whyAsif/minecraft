@@ -39,7 +39,7 @@ function createBot() {
 
   bot.on('end', () => {
     console.log('Bot has been disconnected');
-    setTimeout(createBot, 1000);
+    setTimeout(createBot, 60000);
   });
 
   bot.on('error', (err) => {

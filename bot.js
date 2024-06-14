@@ -1,35 +1,33 @@
 const mineflayer = require('mineflayer');
-const keep_alive = require('./keep_alive.js')
-const botConfigs = [
-    { host: 'play.bdzonemc.com', port: 25565, username: 'ASSif', version: '1.20.1', },
-    { host: 'play.bdzonemc.com', port: 25565, username: 'RedRoom', version: '1.20.1', },
+const keep_alive = require('./keep_alive.js');
 
+const botConfigs = [
+    { host: 'play.bdzonemc.com', port: 25565, username: 'ASSif', version: '1.20.1' },
+    { host: 'play.bdzonemc.com', port: 25565, username: 'RedRoom', version: '1.20.1' },
     // Add more bot configurations here as needed
 ];
 
-function createBot(config) {
+function handleServerMessage(bot, message) {
+    const messageText = message.toString();
+
+    if (messageText.includes('Please login using:')) {
+        console.log(`${bot.username} sending server password...`);
+        bot.chat('/login #Dhaka$.0');
+    }
+    if (messageText.includes('Connected')) {
+        console.log(`${bot.username} sending to survival server...`);
+        bot.chat('/joinq survival');
+    }
+    // Add more conditions as needed
+}
+
+function createBot(config, retryAttempt = 0) {
     const bot = mineflayer.createBot(config);
 
     bot.on('message', (message) => {
         console.log(`${bot.username} received message:`, message.toString());
         handleServerMessage(bot, message);
     });
-
-    function handleServerMessage(bot, message) {
-        const messageText = message.toString();
-
-        if (messageText.includes('Please login using:')) {
-            console.log(`${bot.username} sending server password...`);
-            bot.chat('/login #Dhaka$.0'); // Respond with the server password
-        }
-        if (messageText.includes('Connected')) {
-            console.log(`${bot.username} sending to survival server...`);
-            bot.chat('/joinq survival'); // Respond with the server password
-        }
-        // if (messageText.includes('ASSif has requested')) {
-        //     bot.chat('/tpaccept');
-        // }
-    }
 
     bot.on('login', () => {
         console.log(`${bot.username} has logged in`);
@@ -41,7 +39,10 @@ function createBot(config) {
 
     bot.on('end', () => {
         console.log(`${bot.username} has been disconnected`);
-        setTimeout(() => createBot(config), 5000); // Reconnect the bot after a delay
+        const nextRetryAttempt = retryAttempt + 1;
+        const delay = Math.min(5000 * Math.pow(2, retryAttempt), 60000); // Exponential backoff with a maximum delay of 1 minute
+        console.log(`${bot.username} will attempt to reconnect in ${delay / 1000} seconds`);
+        setTimeout(() => createBot(config, nextRetryAttempt), delay);
     });
 
     bot.on('error', (err) => {
@@ -58,6 +59,10 @@ function createBot(config) {
 
     bot.on('disconnect', (packet) => {
         console.log(`${bot.username} Disconnected: ${packet.reason}`);
+        const nextRetryAttempt = retryAttempt + 1;
+        const delay = Math.min(5000 * Math.pow(2, retryAttempt), 60000); // Exponential backoff with a maximum delay of 1 minute
+        console.log(`${bot.username} will attempt to reconnect in ${delay / 1000} seconds`);
+        setTimeout(() => createBot(config, nextRetryAttempt), delay);
     });
 
     bot.on('chat', (username, message) => {
@@ -70,4 +75,5 @@ function createBot(config) {
     });
 }
 
+// Create bots based on configurations
 botConfigs.forEach(config => createBot(config));
