@@ -2,7 +2,7 @@ const mineflayer = require('mineflayer');
 
 function createBot() {
   bot = mineflayer.createBot({
-    host: 'play.minecraftbangladesh.com',
+    host: 'play.bdzonemc.com',
     port: 25565,
     username: 'wkwkwk'
   });
@@ -15,11 +15,11 @@ function createBot() {
   function handleServerMessage(message) {
     const messageText = message.toString();
 
-    if (messageText.includes('BMS ᴘʟᴇᴀsᴇ,')) {
+    if (messageText.includes('Please login using:')) {
       console.log('Sending server password...');
       bot.chat('/login notabott'); // Respond with the server password
     }
-    if (messageText.includes('Facebook:')) {
+    if (messageText.includes('wkwkwk Connected')) {
       console.log('Sending to survival server...');
       bot.chat('/server survival'); // Respond with the server password
     }

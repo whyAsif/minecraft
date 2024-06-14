@@ -1,8 +1,8 @@
 const mineflayer = require('mineflayer');
 const keep_alive = require('./keep_alive.js')
 const botConfigs = [
-    { host: 'play.minecraftbangladesh.com', port: 25565, username: 'Redroom' },
-    { host: 'play.minecraftbangladesh.com', port: 25565, username: 'whyREX' },
+    { host: 'play.bdzonemc.com', port: 25565, username: 'Redroom' },
+    { host: 'play.bdzonemc.com', port: 25565, username: 'ASSif' },
 
     // Add more bot configurations here as needed
 ];
@@ -18,11 +18,11 @@ function createBot(config) {
     function handleServerMessage(bot, message) {
         const messageText = message.toString();
 
-        if (messageText.includes('BMS ᴘʟᴇᴀsᴇ,')) {
+        if (messageText.includes('Please login using:')) {
             console.log(`${bot.username} sending server password...`);
             bot.chat('/login #Dhaka$.0'); // Respond with the server password
         }
-        if (messageText.includes('Facebook:')) {
+        if (messageText.includes('WEBSITE')) {
             console.log(`${bot.username} sending to survival server...`);
             bot.chat('/server survival'); // Respond with the server password
         }
