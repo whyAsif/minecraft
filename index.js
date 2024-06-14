@@ -2,9 +2,10 @@ const mineflayer = require('mineflayer');
 
 function createBot() {
   bot = mineflayer.createBot({
-    host: 'play.minecraftbangladesh.com',
+    host: 'play.bdzonemc.com',
     port: 25565,
-    username: 'wkwkwk'
+    username: 'wkwkwk',
+    version: '1.20.1',
   });
 
   bot.on('message', (message) => {
@@ -15,13 +16,13 @@ function createBot() {
   function handleServerMessage(message) {
     const messageText = message.toString();
 
-    if (messageText.includes('BMS ᴘʟᴇᴀsᴇ,')) {
+    if (messageText.includes('Please login using:')) {
       console.log('Sending server password...');
       bot.chat('/login notabott'); // Respond with the server password
     }
-    if (messageText.includes('Facebook:')) {
+    if (messageText.includes('Connected')) {
       console.log('Sending to survival server...');
-      bot.chat('/server survival'); // Respond with the server password
+      bot.chat('/joinq survival'); // Respond with the server password
     }
     if (messageText.includes('ASSif has requested')) {
       bot.chat('/tpaccept');
@@ -38,7 +39,7 @@ function createBot() {
 
   bot.on('end', () => {
     console.log('Bot has been disconnected');
-    setTimeout(createBot, 5000);
+    setTimeout(createBot, 60000);
   });
 
   bot.on('error', (err) => {
