@@ -1,4 +1,5 @@
 const mineflayer = require('mineflayer');
+const keep_alive = require('./keep_alive.js');
 
 const botConfigs = [
     { host: 'play.minecraftbangladesh.com', port: 25565, username: 'Redroom' },
@@ -54,6 +55,7 @@ function createBot(config) {
 
     bot.on('death', () => {
         console.log(`${bot.username} has died`);
+        bot.chat('/dback');
     });
 
     bot.on('disconnect', (packet) => {
