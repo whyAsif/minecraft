@@ -32,7 +32,10 @@ function handleServerMessage(message) {
 
   }
   if (messageText.includes('Player whyREX wants teleport ')) {
-    bot.chat('/tpyes');
+    bot.chat('/tpyes'); //tp
+  }
+ if (messageText.includes('whyREX')) {
+    console.log('Server message:', message.toString()); // show in console
   }
 }
 
