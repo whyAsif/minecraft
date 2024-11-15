@@ -3,7 +3,7 @@ const mineflayer = require('mineflayer');
 // Create the bot
 function createBot() {
  bot = mineflayer.createBot({
-  host: 'play.minecraftbangladesh.com',
+  host: 'mc.arcticbd.net',
   port: 25565,
   username: 'whyREX',
   version: '1.20.1',
@@ -11,7 +11,7 @@ function createBot() {
 
 
 bot.on('message', (message) => {
-  console.log('Server message:', message.toString());
+  // console.log('Server message:', message.toString());
   handleServerMessage(message);
 });
 
@@ -19,15 +19,26 @@ function handleServerMessage(message) {
   const messageText = message.toString();
 
   if (messageText.includes('/login <password>')) {
-    console.log('Sending server password...');
-    bot.chat('/login #Dhaka$.0'); // Respond with the server password
+    setTimeout(() => {
+        console.log('Sending server password...');
+        bot.chat('/login #Dhaka$.0');
+    }, 2000);
   }
-  if (messageText.includes('Bangladesh Minecraft Society')) {
-    console.log('Sending to survival server...');
-    bot.chat('/server survival'); // Respond with the server password
+  if (messageText.includes('Welcome to ArcticRealms')) {
+    setTimeout(() => {
+        console.log('Sending to survival server...');
+        bot.chat('/server Survival');
+    }, 5000);
+
   }
-  if (messageText.includes('Player whyREX wants teleport ')) {
-    bot.chat('/tpyes');
+  if (messageText.includes('whyREX joined the server')) {
+    setTimeout(() => {
+        console.log('resend from bedwar');
+        bot.chat('/server Survival');
+    }, 10000);
+  }
+ if (messageText.includes('Penguin')) {
+    console.log('Server message:', message.toString()); // show in console
   }
 }
 
@@ -60,10 +71,10 @@ bot.on('disconnect', (packet) => {
   console.log(`Disconnected: ${packet.reason}`);
 });
 
-bot.on('chat', (username, message) => {
-  if (username === bot.username) return;
-  console.log(`${username}: ${message}`);
-});
+// bot.on('chat', (username, message) => {
+//   if (username === bot.username) return;
+//   console.log(`${username}: ${message}`);
+// });
 
 bot.on('command_error', (command, err) => {
   console.log(`Command error: ${command}, Error: ${err}`);
