@@ -31,10 +31,13 @@ function handleServerMessage(message) {
     }, 5000);
 
   }
-  if (messageText.includes('Player whyREX wants teleport ')) {
-    bot.chat('/tpyes'); //tp
+  if (messageText.includes('ASSif joined the server')) {
+    setTimeout(() => {
+        console.log('resend from bedwar');
+        bot.chat('/server Survival');
+    }, 10000);
   }
- if (messageText.includes('ASSif')) {
+ if (messageText.includes('Penguin')) {
     console.log('Server message:', message.toString()); // show in console
   }
 }
