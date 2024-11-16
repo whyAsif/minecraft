@@ -5,7 +5,7 @@ const mineflayer = require('mineflayer');
 // Create the bot
 function createBot() {
  bot = mineflayer.createBot({
-  host: 'mc.arcticbd.net',
+  host: 'play.aqualand.top',
   port: 25565,
   username: 'whyREX',
   version: '1.20.1',
@@ -13,7 +13,7 @@ function createBot() {
 
 
 bot.on('message', (message) => {
-  // console.log('Server message:', message.toString());
+  console.log('Server message:', message.toString());
   handleServerMessage(message);
 });
 
@@ -26,13 +26,9 @@ function handleServerMessage(message) {
         bot.chat('/login #Dhaka$.0');
     }, 2000);
   }
-  if (messageText.includes('Welcome to ArcticRealms')) {
-    setTimeout(() => {
-        console.log('Sending to survival server...');
-        bot.chat('/server Survival');
-    }, 5000);
 
-  }
+
+  
   if (messageText.includes('Player whyREX wants teleport ')) {
     bot.chat('/tpyes'); //tp
   }
@@ -46,7 +42,7 @@ bot.on('login', () => {
 
   // Wait for 5 seconds after spawning
   setTimeout(() => {
-    selectHotbarItem(0); // Select the first hotbar slot (adjust slot as needed)
+    selectHotbarItem(7); // Select the first hotbar slot (adjust slot as needed)
     rightClick();        // Right-click the item to open the GUI
   }, 5000); // Delay to ensure the bot is ready
 });
@@ -56,7 +52,7 @@ bot.on('login', () => {
 
   // Replace 'target_item_name' with the specific item name in the GUI
   const targetItem = window.slots.find(
-    (item) => item && item.name === 'target_item_name'
+    (item) => item && item.name === 'campfire'
   );
 
   if (targetItem) {
