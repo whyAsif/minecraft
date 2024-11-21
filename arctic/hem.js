@@ -5,7 +5,7 @@ function createBot() {
  bot = mineflayer.createBot({
   host: 'mc.arcticbd.net',
   port: 25565,
-  username: 'whyREX',
+  username: 'Romeo',
   version: '1.20.1',
 });
 
@@ -21,18 +21,27 @@ function handleServerMessage(message) {
   if (messageText.includes('/login <password>')) {
     setTimeout(() => {
         console.log('Sending server password...');
-        bot.chat('/login #Dhaka$.0');
-    }, 2000);
+        bot.chat('/login 123123123#');
+    }, 500);
   }
   if (messageText.includes('Welcome to ArcticRealms')) {
     setTimeout(() => {
         console.log('Sending to survival server...');
-        bot.chat('/server Survival');S
+        bot.chat('/server Survival');
     }, 5000);
 
   }
   if (messageText.includes('Player whyREX wants teleport ')) {
-    bot.chat('/tpyes'); //tp
+    bot.chat('/tpaccept'); //tp
+  }
+  if (messageText.includes("(HemalGaming ➜ You) bye")) {
+    console.log('Trigger text detected! Disconnecting...');
+    bot.quit('Disconnected due to trigger text'); // Disconnect the bot
+    // Reconnect after 5 minutes
+    setTimeout(() => {
+      console.log('Reconnecting after 5 minutes...');
+      createBot();  // Recreate the bot
+    }, 1 * 60 * 1000); // 5 minutes in milliseconds
   }
 }
 
@@ -46,7 +55,7 @@ bot.on('spawn', () => {
 
 bot.on('end', () => {
   console.log('Bot has been disconnected');
-  setTimeout(createBot, 5000);
+  setTimeout(createBot, 5 * 60 * 1000);
 });
 
 bot.on('error', (err) => {
