@@ -34,6 +34,15 @@ function handleServerMessage(message) {
   if (messageText.includes('Player whyREX wants teleport ')) {
     bot.chat('/tpaccept'); //tp
   }
+
+  if (messageText.includes('(HemalGaming ➜ You) home')) {
+    bot.chat('/home'); //tp
+  }
+
+  if (messageText.includes('(HemalGaming ➜ You) bed')) {
+    bot.chat('/home bed'); //tp
+  }
+
   if (messageText.includes("(HemalGaming ➜ You) bye")) {
     console.log('Trigger text detected! Disconnecting...');
     bot.quit('Disconnected due to trigger text'); // Disconnect the bot
@@ -41,7 +50,7 @@ function handleServerMessage(message) {
     setTimeout(() => {
       console.log('Reconnecting after 5 minutes...');
       createBot();  // Recreate the bot
-    }, 1 * 60 * 1000); // 5 minutes in milliseconds
+    }, 2 * 60 * 1000); // 5 minutes in milliseconds
   }
 }
 
