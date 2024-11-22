@@ -22,12 +22,12 @@ function handleServerMessage(message) {
     setTimeout(() => {
         console.log('Sending server password...');
         bot.chat('/login #Dhaka$.0');
-    }, 2000);
+    }, 100);
   }
   if (messageText.includes('Welcome to ArcticRealms')) {
     setTimeout(() => {
         console.log('Sending to survival server...');
-        bot.chat('/server Survival');S
+        bot.chat('/server Survival');
     }, 5000);
 
   }
