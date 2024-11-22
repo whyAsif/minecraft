@@ -5,7 +5,7 @@ function createBot() {
  bot = mineflayer.createBot({
   host: 'play.minecraftbangladesh.com',
   port: 25565,
-  username: 'whYREX',
+  username: 'whyREX',
   version: '1.20.1',
 });
 
