@@ -18,7 +18,7 @@ function createBot() {
 
 bot.on('message', (message) => {
 
-  console.log('Server message:', message.toString());
+  // console.log('Server message:', message.toString());
 
   handleServerMessage(message);
 
