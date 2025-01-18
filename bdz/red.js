@@ -5,7 +5,7 @@ function createBot() {
     host: 'play.bdzonemc.com',
     port: 25565,
     username: 'RedRoom',
-    version: '1.20.4', // Explicitly set the version
+    version: '1.20.1', // Explicitly set the version
   });
 
   bot.on('message', (message) => {
@@ -24,7 +24,7 @@ function createBot() {
       bot.chat('/login #Dhaka$.0'); // Respond with the server password
     }
 
-    if (messageText.includes('whyREX request to teleport')) {
+    if ((messageText.includes('whyREX request to teleport')) || (messageText.includes('whyREX has requested'))) {
       console.log('Server message:', message.toString());
       bot.chat('/tpaccept');
     }
