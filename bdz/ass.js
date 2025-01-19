@@ -15,8 +15,8 @@ function createBot() {
   function handleServerMessage(message) {
     const messageText = message.toString();
 
-    if (messageText.includes('➔')) {
-      console.log('Server message:', message.toString());
+    if (messageText.includes('Welcome')) {
+      console.log(message.toString());
     }
 
     if (messageText.includes('Please login using:')) {

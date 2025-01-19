@@ -21,7 +21,7 @@ function handleServerMessage(message) {
   if (messageText.includes('/login <password>')) {
     setTimeout(() => {
         console.log('Sending server password...');
-        bot.chat('/login #Dhaka$.0');
+        bot.chat('/login 123123123#');
     }, 2000);
   }
   if (messageText.includes('Welcome to ArcticRealms')) {
@@ -40,6 +40,31 @@ function handleServerMessage(message) {
  if (messageText.includes('Penguin')) {
     console.log('Server message:', message.toString()); // show in console
   }
+
+  if (messageText.includes('Player whyREX wants teleport ')) {
+
+    bot.chat('/tpaccept'); //tp
+
+  }
+
+  if (messageText.includes('(HemalGaming ➜ You) home')) {
+	console.log('homee');
+    bot.chat('/home'); //tp
+
+  }
+
+  if (messageText.includes('(HemalGaming ➜ You) bed')) {
+	console.log('beddd');
+    bot.chat('/home bed'); //tp
+
+  }
+
+  if (messageText.includes("(HemalGaming ➜ You) bye") || messageText.includes("(whyREX ➜ You) bye")) {
+
+    console.log('Trigger text detected! Disconnecting...');
+
+    bot.end('Disconnected due to trigger text');
+}
 }
 
 bot.on('login', () => {
@@ -52,7 +77,7 @@ bot.on('spawn', () => {
 
 bot.on('end', () => {
   console.log('Bot has been disconnected');
-  setTimeout(createBot, 5000);
+  setTimeout(createBot, 2 * 60 * 1000);
 });
 
 bot.on('error', (err) => {
