@@ -15,8 +15,8 @@ function createBot() {
   function handleServerMessage(message) {
     const messageText = message.toString();
 
-    if (messageText.includes('➔')) {
-      console.log('Server message:', message.toString());
+    if (messageText.includes('Welcome')) {
+      console.log(message.toString());
     }
 
     if (messageText.includes('Please login using:')) {
@@ -28,6 +28,11 @@ function createBot() {
       console.log('Server message:', message.toString());
       bot.chat('/tpaccept');
     }
+
+    if (messageText.includes("whyREX [survival] -> You : bye")) {
+      console.log('Trigger text detected! Disconnecting...');
+      bot.end('Disconnected due to trigger text'); // Disconnect the bot
+  }
   }
 
   bot.on('login', () => {
@@ -40,7 +45,7 @@ function createBot() {
 
   bot.on('end', () => {
     console.log('Bot has been disconnected');
-    setTimeout(createBot, 5000);
+    setTimeout(createBot, 10000);
   });
 
   bot.on('error', (err) => {
