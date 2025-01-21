@@ -23,16 +23,30 @@ function createBot() {
       console.log('Sending server password...');
       bot.chat('/login #Dhaka$.0'); // Respond with the server password
     }
-
+    //whyREX
     if ((messageText.includes('whyREX request to teleport')) || (messageText.includes('whyREX has requested'))) {
       console.log('Server message:', message.toString());
       bot.chat('/tpaccept');
     }
+    //GaMa
+    if ((messageText.includes('GaMa request to teleport')) || (messageText.includes('GaMa has requested'))) {
+      console.log('Server message:', message.toString());
+      bot.chat('/tpaccept');
+    }
+    //siam8689
+    if ((messageText.includes('siam8689 request to teleport')) || (messageText.includes('siam8689 has requested'))) {
+      console.log('Server message:', message.toString());
+      bot.chat('/tpaccept');
+    }
 
+
+    //disconnect
     if (messageText.includes("whyREX [survival] -> You : bye")) {
       console.log('Trigger text detected! Disconnecting...');
       bot.end('Disconnected due to trigger text'); // Disconnect the bot
   }
+
+
   }
 
   bot.on('login', () => {

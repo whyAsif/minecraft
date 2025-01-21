@@ -37,9 +37,9 @@ function handleServerMessage(message) {
         bot.chat('/server Survival');
     }, 10000);
   }
- if (messageText.includes('Penguin')) {
-    console.log('Server message:', message.toString()); // show in console
-  }
+//  if (messageText.includes('Penguin')) {
+//     console.log('Server message:', message.toString()); // show in console
+//   }
 
   if (messageText.includes('Player whyREX wants teleport ')) {
 

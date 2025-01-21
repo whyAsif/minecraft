@@ -18,19 +18,24 @@ function createBot() {
         //Logger
         if (messageText.includes('Welcome')) {
             console.log(message.toString());
-          }
+        }
         //Login
         if (messageText.includes('Please login using:')) {
             console.log('Sending server password...');
             bot.chat('/login GamerMax2424'); // Respond with the server password
         }
-        //GAMA tp
+        //whyREX
+        if ((messageText.includes('whyREX request to teleport')) || (messageText.includes('whyREX has requested'))) {
+            console.log('Server message:', message.toString());
+            bot.chat('/tpaccept');
+        }
+        //GaMa
         if ((messageText.includes('GaMa request to teleport')) || (messageText.includes('GaMa has requested'))) {
             console.log('Server message:', message.toString());
             bot.chat('/tpaccept');
         }
-        //whyREX tp
-        if ((messageText.includes('whyREX request to teleport')) || (messageText.includes('whyREX has requested'))) {
+        //siam8689
+        if ((messageText.includes('siam8689 request to teleport')) || (messageText.includes('siam8689 has requested'))) {
             console.log('Server message:', message.toString());
             bot.chat('/tpaccept');
         }
