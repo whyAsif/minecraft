@@ -31,7 +31,7 @@ function createBot() {
             
           if (messageText.includes('Please login using:')) {
             console.log('Sending server password...');
-            delayedChat('/login #Dhaka$.0'); // Respond with the server password
+            delayedChat('/login GamerMax2424'); // Respond with the server password
           }
           if ((messageText.includes('GaMa2629 Connected')) || messageText.includes('You have been logged')) {
             console.log('joining survival');
