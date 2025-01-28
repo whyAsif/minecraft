@@ -58,7 +58,7 @@ function createBot() {
       }, 2000);
     }
 
-    if (messageText.includes('ᴡᴇʙsɪᴛᴇ')) {
+    if ((messageText.includes('ᴡᴇʙsɪᴛᴇ')) || messageText.includes('sᴛᴏʀᴇ')) {
       setTimeout(() => {
         selectHotbarItem(7); // Select the first hotbar slot (adjust slot as needed)
         rightClick();        // Right-click the item to open the GUI
