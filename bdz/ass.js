@@ -15,13 +15,26 @@ function createBot() {
   function handleServerMessage(message) {
     const messageText = message.toString();
 
-    if (messageText.includes('Welcome')) {
-      console.log(message.toString());
+    function delayedChat(command) {
+      setTimeout(() => {
+        bot.chat(command);
+      }, 2000);
     }
 
+    if (messageText.includes('XYZ')) {
+    }
+    else {
+        console.log( message.toString());
+    }
+
+      
     if (messageText.includes('Please login using:')) {
       console.log('Sending server password...');
-      bot.chat('/login #Dhaka$.0'); // Respond with the server password
+      delayedChat('/login #Dhaka$.0'); // Respond with the server password
+    }
+    if ((messageText.includes('ASSif Connected')) || messageText.includes('You have been logged')) {
+      console.log('joining survival');
+      delayedChat('/joinq survival'); 
     }
     //whyREX
     if ((messageText.includes('whyREX request to teleport')) || (messageText.includes('whyREX has requested'))) {

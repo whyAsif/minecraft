@@ -17,6 +17,12 @@ function createBot() {
     const messageText = message.toString();
 
 
+    function delayedChat(command) {
+      setTimeout(() => {
+        bot.chat(command);
+      }, 2000);
+    }
+
     if (messageText.includes('XYZ')) {
     }
     else {
@@ -26,7 +32,11 @@ function createBot() {
       
     if (messageText.includes('Please login using:')) {
       console.log('Sending server password...');
-      bot.chat('/login #Dhaka$.0'); // Respond with the server password
+      delayedChat('/login #Dhaka$.0'); // Respond with the server password
+    }
+    if ((messageText.includes('whyREX Connected')) || messageText.includes('You have been logged')) {
+      console.log('joining survival');
+      delayedChat('/joinq survival'); 
     }
     // if (messageText.includes('Connected')) {
     //   console.log('Sending to survival server...');
@@ -65,11 +75,6 @@ function createBot() {
 
   bot.on('disconnect', (packet) => {
     console.log(`Disconnected: ${packet.reason}`);
-  });
-
-  bot.on('chat', (username, message) => {
-    if (username === bot.username) return;
-    //console.log(`${username}: ${message}`);
   });
 
   bot.on('command_error', (command, err) => {
