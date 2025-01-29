@@ -30,9 +30,9 @@ function createBot() {
       
     if (messageText.includes('Please login using:')) {
       console.log('Sending server password...');
-      delayedChat('/login #Dhaka$.0'); // Respond with the server password
+      bot.chat('/login #Dhaka$.0'); // Respond with the server password
     }
-    if ((messageText.includes('Lain Connected')) || messageText.includes('You have been logged')) {
+    if ((messageText.includes('Lain Connected')) || messageText.includes('←')) {
       console.log('joining survival');
       delayedChat('/joinq survival'); 
     }

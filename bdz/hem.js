@@ -4,7 +4,7 @@ function createBot() {
     bot = mineflayer.createBot({
         host: 'play.bdzonemc.com',
         port: 25565,
-        username: 'GaMa2629',
+        username: 'Romeo',
         version: '1.20.1', // Explicitly set the version
     });
 
@@ -31,9 +31,9 @@ function createBot() {
             
           if (messageText.includes('Please login using:')) {
             console.log('Sending server password...');
-            bot.chat('/login GamerMax2424'); // Respond with the server password
+            bot.chat('/login 123123123#'); // Respond with the server password
           }
-          if ((messageText.includes('GaMa2629 Connected')) || messageText.includes('←')) {
+          if ((messageText.includes('Romeo Connected')) || messageText.includes('←')) {
             console.log('joining survival');
             delayedChat('/joinq survival'); 
           }
@@ -52,8 +52,13 @@ function createBot() {
             console.log('Server message:', message.toString());
             bot.chat('/tpaccept');
         }
+        //hemal
+        if ((messageText.includes('HemalGaming request to teleport')) || (messageText.includes('HemalGaming has requested'))) {
+            console.log('Server message:', message.toString());
+            bot.chat('/tpaccept');
+        }
         //Disconnect
-        if (messageText.includes("GaMa [survival] -> You : bye") || messageText.includes("whyREX [survival] -> You : bye")) {
+        if (messageText.includes("whyREX [survival] -> You : bye") ||messageText.includes("HemalGaming [survival] -> You : bye")) {
             console.log('Trigger text detected! Disconnecting...');
             bot.end('Disconnected due to trigger text'); // Disconnect the bot
         }
