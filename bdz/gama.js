@@ -33,7 +33,7 @@ function createBot() {
             console.log('Sending server password...');
             bot.chat('/login GamerMax2424'); // Respond with the server password
           }
-          if ((messageText.includes('GaMa2629 Connected')) || messageText.includes('←')) {
+          if ((messageText.includes('GaMa2629 Connected')) || messageText.includes('←')|| messageText.includes('BDZONE')) {
             console.log('joining survival');
             delayedChat('/joinq survival'); 
           }

@@ -33,7 +33,7 @@ function createBot() {
             console.log('Sending server password...');
             bot.chat('/login 123123123#'); // Respond with the server password
           }
-          if ((messageText.includes('Romeo Connected')) || messageText.includes('←')) {
+          if ((messageText.includes('Romeo Connected')) || messageText.includes('←')|| messageText.includes('BDZONE')) {
             console.log('joining survival');
             delayedChat('/joinq survival'); 
           }

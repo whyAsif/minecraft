@@ -34,7 +34,7 @@ function createBot() {
       console.log('Sending server password...');
       bot.chat('/login #Dhaka$.0'); // Respond with the server password
     }
-    if ((messageText.includes('whyREX Connected')) || messageText.includes('←')) {
+    if ((messageText.includes('whyREX Connected')) || messageText.includes('←')|| messageText.includes('BDZONE')) {
       console.log('joining survival');
       delayedChat('/joinq survival'); 
     }
