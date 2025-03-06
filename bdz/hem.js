@@ -57,6 +57,11 @@ function createBot() {
             console.log('Server message:', message.toString());
             bot.chat('/tpaccept');
         }
+        //FuadHasan
+        if ((messageText.includes('FuadHasan request to teleport')) || (messageText.includes('FuadHasan has requested'))) {
+            console.log('Server message:', message.toString());
+            bot.chat('/tpaccept');
+        }
         //Disconnect
         if (messageText.includes("whyREX [survival] -> You : bye") ||messageText.includes("HemalGaming [survival] -> You : bye")) {
             console.log('Trigger text detected! Disconnecting...');
