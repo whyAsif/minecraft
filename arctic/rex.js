@@ -30,7 +30,13 @@ function createBot() {
         bot.chat('/server Survival');
       }, 3000);
     }
+
+
+    if (messageText.includes('You have left the')) {
+      bot.chat('/home'); //tp
+    }
   }
+  
 
   bot.on('login', () => {
     console.log('Bot has logged in');
