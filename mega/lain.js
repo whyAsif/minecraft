@@ -5,7 +5,7 @@ function createBot() {
  bot = mineflayer.createBot({
   host: 'play.themegahive.com',
   port: 25565,
-  username: 'ASSif',
+  username: 'Lain',
   version: '1.20.1',
 });
 
@@ -22,7 +22,7 @@ function handleServerMessage(message) {
     setTimeout(() => {
         console.log('Sending server password...');
         bot.chat('/login #Dhaka$.0');
-    }, 2000);
+    }, 1000);
   }
   if (messageText.includes('play.themegahive.com')) {
     setTimeout(() => {
