@@ -1,6 +1,17 @@
 const mineflayer = require('mineflayer');
 
-// Create the bot
+const express = require('express');
+   const app = express();
+   const port = 3000;
+
+   app.get('/', (req, res) => {
+     res.send('Hello, your app is running 24/7!');
+   });
+
+   app.listen(port, () => {
+     console.log(`Server is running on http://localhost:${port}`);
+   });
+   
 function createBot() {
  bot = mineflayer.createBot({
   host: 'play.themegahive.com',
