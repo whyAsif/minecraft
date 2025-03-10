@@ -34,6 +34,13 @@ function handleServerMessage(message) {
   if (messageText.includes('whyREX has requested')) {
     bot.chat('/tpaccept');
   }
+  if (messageText.includes('GaMa has requested')) {
+    bot.chat('/tpaccept');
+  }
+  if (messageText.includes('siam8689 has requested')) {
+    bot.chat('/tpaccept');
+  }
+
 }
 
 bot.on('login', () => {
