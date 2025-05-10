@@ -22,7 +22,7 @@ function handleServerMessage(message) {
     console.log('Sending server password...');
     bot.chat('/login #Dhaka$.0'); // Respond with the server password
   }
-  if (messageText.includes('Bangladesh Minecraft Society')) {
+  if (messageText.includes('Bangladesh Minecraft Society') || messageText.includes('Join our Facebook') || messageText.includes('Join our Discord')) {
     console.log('Sending to survival server...');
     bot.chat('/server survival'); // Respond with the server password
   }
