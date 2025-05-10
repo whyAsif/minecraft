@@ -11,7 +11,7 @@ function createBot() {
 
 
 bot.on('message', (message) => {
-  console.log('Server message:', message.toString());
+  console.log('=>', message.toString());
   handleServerMessage(message);
 });
 
@@ -26,8 +26,8 @@ function handleServerMessage(message) {
     console.log('Sending to survival server...');
     bot.chat('/server survival'); // Respond with the server password
   }
-  if (messageText.includes('Player whyREX wants teleport ')) {
-    bot.chat('/tpyes');
+  if (messageText.includes('whyREX has requested')) {
+    bot.chat('/tpaccept');
   }
 }
 
