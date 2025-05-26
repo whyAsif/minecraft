@@ -22,7 +22,7 @@ function handleServerMessage(message) {
     console.log('Sending server password...');
     bot.chat('/login #Dhaka$.0'); // Respond with the server password
   }
-  if (messageText.includes('whyREX Joined the Survival') || messageText.includes('Use the /back command')) {
+  if (messageText.includes('whyREX Joined the Survival') || messageText.includes('Use the /back command') || messageText.includes('whyREX was slain')) {
     console.log('homeee');
     bot.chat('/home'); // Respond with the server password
   }
